@@ -65,7 +65,7 @@ class EufyRoboVacAccessory implements AccessoryPlugin {
   }
 
   async setup() {
-		this.roboVac = new RoboVac(this.config, this.debugLog);
+    this.roboVac = new RoboVac(this.config, this.debugLog);
     return await this.roboVac.getStatuses();
   }
 
@@ -79,7 +79,7 @@ class EufyRoboVacAccessory implements AccessoryPlugin {
       callback(undefined, cleanState);
     } catch(e) {
       await this.setup();
-      this.getCleanState(() => {});
+      this.getCleanState(callback);
     }
   }
 
